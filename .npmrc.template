@@ -1,0 +1,4 @@
+# Copy to .npmrc (which is .gitignored) before installing.
+# Token must be a GitHub PAT with read:packages scope.
+@final-commerce:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_PACKAGES_TOKEN}

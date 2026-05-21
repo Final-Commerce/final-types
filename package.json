@@ -1,0 +1,56 @@
+{
+  "name": "@final-commerce/final-types",
+  "version": "0.0.0-dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Final-Commerce/final-types.git"
+  },
+  "description": "Public TypeScript contract types for Final Commerce POS — consumed by render, command-frame, manhattan-builder, and any external integrator building flows/extensions/shells against the POS surface.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist/",
+    "README.md",
+    "package.json",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json && node scripts/generate-exports.mjs",
+    "dev": "tsc --watch",
+    "test": "vitest run && tsd",
+    "test:vitest": "vitest run",
+    "test:tsd": "tsd",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "audit": "npm audit --audit-level=high",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "types",
+    "pos",
+    "point-of-sale",
+    "final-commerce",
+    "contract"
+  ],
+  "author": "Final Commerce",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/node": "^20.19.41",
+    "eslint": "^9.39.4",
+    "tsc-alias": "^1.8.17",
+    "tsd": "^0.31.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.59.4",
+    "vitest": "^1.6.1"
+  },
+  "tsd": {
+    "directory": "tests"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json",
+    "./*": "./dist/*.js"
+  }
+}
